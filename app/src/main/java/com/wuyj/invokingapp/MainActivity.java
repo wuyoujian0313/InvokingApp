@@ -22,25 +22,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.wuyj.pluginapp", "com.wuyj.pluginapp.MainActivity"));
-                intent.putExtra("key1", "value1");
-                intent.putExtra("key2", "value2");
-                startActivityForResult(intent, 1000);
-
-                textView.setText("我去调用第三方APP");
-
 //                Intent intent = new Intent();
-//                intent.setComponent(new ComponentName("com.example.neusoft.project", "com.example.neusoft.project.BillSelect"));
-//                intent.putExtra("user", "AGT00002");
-//                intent.putExtra("epartchCode", "0871");
-//                intent.putExtra("cityCode", "A0AM");
-//                intent.putExtra("departId", "7E51F");
-//                intent.putExtra("staffId", "AGTB3081");
-//                intent.putExtra("departName", "官渡省信息技术中心测试专用工号");
-//                intent.putExtra("staffName", "赵磊");
-//                intent.putExtra("pwd", "");
+//                intent.setComponent(new ComponentName("com.wuyj.pluginapp", "com.wuyj.pluginapp.MainActivity"));
+//                intent.putExtra("key1", "value1");
+//                intent.putExtra("key2", "value2");
 //                startActivityForResult(intent, 1000);
+//                textView.setText("我去调用第三方APP");
+
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.example.neusoft.project", "com.example.neusoft.project.BillSelect"));
+                intent.putExtra("user", "AGTF5823");
+                intent.putExtra("epartchCode", "0871");
+                intent.putExtra("cityCode", "A0AM");
+                intent.putExtra("departId", "7E51F");
+                intent.putExtra("staffId", "AGTT7499");
+                intent.putExtra("departName", "官渡省信息技术中心测试专用工号");
+                intent.putExtra("staffName", "赵磊");
+                intent.putExtra("pwd", "");
+                startActivityForResult(intent, 1000);
 
                 textView.setText("调用第三方app去啰！");
             }
