@@ -21,6 +21,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/backButton2"
+        android:text="返回"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/backButton1"
         android:text="一步返回到宿主（错误）"
         android:textAllCaps="false"/>

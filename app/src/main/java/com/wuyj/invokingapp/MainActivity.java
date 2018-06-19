@@ -29,6 +29,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1000);
 
                 textView.setText("我去调用第三方APP");
+
+//                Intent intent = new Intent();
+//                intent.setComponent(new ComponentName("com.example.neusoft.project", "com.example.neusoft.project.BillSelect"));
+//                intent.putExtra("user", "AGT00002");
+//                intent.putExtra("epartchCode", "0871");
+//                intent.putExtra("cityCode", "A0AM");
+//                intent.putExtra("departId", "7E51F");
+//                intent.putExtra("staffId", "AGTB3081");
+//                intent.putExtra("departName", "官渡省信息技术中心测试专用工号");
+//                intent.putExtra("staffName", "赵磊");
+//                intent.putExtra("pwd", "");
+//                startActivityForResult(intent, 1000);
+
+                textView.setText("调用第三方app去啰！");
             }
         });
     }
@@ -41,5 +55,9 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView)findViewById(R.id.text);
         value = textView.getText() + "，获取的数据是：" + value;
         textView.setText(value);
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
