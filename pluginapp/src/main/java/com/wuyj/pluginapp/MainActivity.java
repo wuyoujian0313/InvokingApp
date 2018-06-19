@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }  else {
             //直接执行相应操作了
+            // 执行自己后续的业务逻辑，比如拍照等等；
         }
     }
 
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 3000) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                // 已经开启权限
+                // 执行自己后续的业务逻辑，比如拍照等等；
             } else {
                 // Permission Denied
                 // 用户选择了禁止使用
