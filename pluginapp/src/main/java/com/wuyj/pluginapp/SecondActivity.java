@@ -52,9 +52,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.wuyj.invokingapp", "com.wuyj.invokingapp.MainActivity"));
-                intent.putExtra("key2", "value2");
+                Intent intent = new Intent(SecondActivity.this,ThirdActivity.class);
                 startActivity(intent);
             }
         });

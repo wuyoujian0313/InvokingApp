@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:appp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/Button5"
+        appp:layout_widthPercent="30%"
+        appp:layout_heightPercent="50%"
+        android:layout_alignParentLeft="true"
+        android:text="Button5"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/Button6"
+        android:layout_toRightOf="@+id/Button5"
+        appp:layout_widthPercent="70%"
+        appp:layout_heightPercent="30%"
+        android:text="Button6"
+        android:textAllCaps="false" />
+
+
+</android.support.percent.PercentRelativeLayout>

@@ -50,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        String value = data.getStringExtra("key");
-        TextView textView = (TextView)findViewById(R.id.text);
-        value = textView.getText() + "，获取的数据是：" + value;
-        textView.setText(value);
+        if (requestCode == 1000 && resultCode == 0) {
+            String value = data.getStringExtra("key");
+            TextView textView = (TextView)findViewById(R.id.text);
+            value = textView.getText() + "，获取的数据是：" + value;
+            textView.setText(value);
+        }
     }
 
     @Override
