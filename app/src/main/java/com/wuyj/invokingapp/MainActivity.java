@@ -22,26 +22,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                Intent intent = new Intent();
-//                intent.setComponent(new ComponentName("com.wuyj.pluginapp", "com.wuyj.pluginapp.MainActivity"));
-//                intent.putExtra("key1", "value1");
-//                intent.putExtra("key2", "value2");
-//                startActivityForResult(intent, 1000);
-//                textView.setText("我去调用第三方APP");
+                /* 在AndroidManifest.xml给SecondActivity配置intent-filter
+
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+                 */
+                /*我们就可以打开处理那个默认的Activity，在这里传入了intent，然后在SencondActivity里的onCreate里通过：
+                  Intent intent = getIntent();判断一下是否有值，如果值说明是融合模式调用的；没有就是正常的启动，如果正常的启动也传入了
+                  intent那就加上一个标识位判断被调用的来源
+                 */
 
                 Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.example.neusoft.project", "com.example.neusoft.project.BillSelect"));
-                intent.putExtra("user", "AGTF5823");
-                intent.putExtra("epartchCode", "0871");
-                intent.putExtra("cityCode", "A0AM");
-                intent.putExtra("departId", "7E51F");
-                intent.putExtra("staffId", "AGTT7499");
-                intent.putExtra("departName", "官渡省信息技术中心测试专用工号");
-                intent.putExtra("staffName", "赵磊");
-                intent.putExtra("pwd", "");
+                intent.setComponent(new ComponentName("com.wuyj.pluginapp", "com.wuyj.pluginapp.SecondActivity"));
+                intent.putExtra("key1", "value1");
+                intent.putExtra("key2", "value2");
                 startActivityForResult(intent, 1000);
+                textView.setText("我去调用第三方APP");
 
-                textView.setText("调用第三方app去啰！");
+//                Intent intent = new Intent();
+//                intent.setComponent(new ComponentName("com.example.neusoft.project", "com.example.neusoft.project.BillSelect"));
+//                intent.putExtra("user", "AGTF5823");
+//                intent.putExtra("epartchCode", "0871");
+//                intent.putExtra("cityCode", "A0AM");
+//                intent.putExtra("departId", "7E51F");
+//                intent.putExtra("staffId", "AGTT7499");
+//                intent.putExtra("departName", "官渡省信息技术中心测试专用工号");
+//                intent.putExtra("staffName", "赵磊");
+//                intent.putExtra("pwd", "");
+//                startActivityForResult(intent, 1000);
+
+//                textView.setText("调用第三方app去啰！");
             }
         });
     }

@@ -14,6 +14,12 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        Intent intent = getIntent();
+        if (intent != null) {
+            // 说明是融合模式进入的
+
+        }
+
         Button button = (Button)findViewById(R.id.backButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
