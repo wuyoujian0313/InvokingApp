@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -34,15 +37,16 @@ public class MainActivity extends AppCompatActivity {
                   intent那就加上一个标识位判断被调用的来源
                  */
 
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.wuyj.pluginapp", "com.wuyj.pluginapp.SecondActivity"));
-                intent.putExtra("key1", "value1");
-                intent.putExtra("key2", "value2");
-                startActivityForResult(intent, 1000);
-                textView.setText("我去调用第三方APP");
+//                Intent intent = new Intent();
+//                intent.setComponent(new ComponentName("com.wuyj.pluginapp", "com.wuyj.pluginapp.SecondActivity"));
+//                intent.putExtra("key1", "value1");
+//                intent.putExtra("key2", "value2");
+//                startActivityForResult(intent, 1000);
+//                textView.setText("我去调用第三方APP");
 
 //                Intent intent = new Intent();
-//                intent.setComponent(new ComponentName("com.example.neusoft.project", "com.example.neusoft.project.BillSelect"));
+//                //intent.setComponent(new ComponentName("com.example.neusoft.project", "com.example.neusoft.project.BillSelect"));
+//                intent.setComponent(new ComponentName("com.example.neusoftGov.project", "com.example.neusoftGov.project.GovernmentBillSelect"));
 //                intent.putExtra("user", "AGTF5823");
 //                intent.putExtra("epartchCode", "0871");
 //                intent.putExtra("cityCode", "A0AM");
@@ -52,8 +56,30 @@ public class MainActivity extends AppCompatActivity {
 //                intent.putExtra("staffName", "赵磊");
 //                intent.putExtra("pwd", "");
 //                startActivityForResult(intent, 1000);
-
 //                textView.setText("调用第三方app去啰！");
+
+                // 调用浪潮云南集客app
+                //获取当前时间
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// HH:mm:ss
+                Date date = new Date(System.currentTimeMillis());
+                String nowDate = simpleDateFormat.format(date);
+                //组织传入的json字符串
+                String staffId = "yuanmin";
+                String json = "{\"username\":\""+staffId+"\",\"timestamp\":\""+nowDate+"\"}";
+                //json加密
+                String key = "www.asiainfo.com";
+                try {
+                    String  token = AESEncrypt.encrypt(json,key);
+                    // 调用浪潮云南集客app
+                    Intent intent = new Intent();
+                    intent.setComponent(new ComponentName("com.inspur.SmartApp", "com.inspur.SmartApp.MainActivity"));
+                    intent.putExtra("token", token);
+                    startActivityForResult(intent, 1000);
+                } catch (Exception e) {
+
+                }
+
+
             }
         });
     }

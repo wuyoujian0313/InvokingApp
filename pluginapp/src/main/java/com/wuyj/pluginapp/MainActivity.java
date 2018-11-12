@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 提示开启相机权限
-        requestPermission(Manifest.permission.CAMERA, 3000);
+        //requestPermission(Manifest.permission.CAMERA, 3000);
         requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 3000);
     }
 

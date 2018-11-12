@@ -122,6 +122,7 @@ public class ThirdActivity extends AppCompatActivity {
     void sms() {
         Uri uri = Uri.parse("smsto:18600746313");
         Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+        intent.putExtra("sms_body", "wuyoujian");
         startActivity(intent);
     }
 
