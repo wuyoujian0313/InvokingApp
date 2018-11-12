@@ -59,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
 //                textView.setText("调用第三方app去啰！");
 
                 // 调用浪潮云南集客app
-                //获取当前时间
+                // 获取当前时间
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// HH:mm:ss
                 Date date = new Date(System.currentTimeMillis());
                 String nowDate = simpleDateFormat.format(date);
                 //组织传入的json字符串
                 String staffId = "yuanmin";
-                String json = "{\"username\":\""+staffId+"\",\"timestamp\":\""+nowDate+"\"}";
+                String json = "{\"userName\":\""+staffId+"\",\"timestamp\":\""+nowDate+"\"}";
                 //json加密
                 String key = "www.asiainfo.com";
                 try {
@@ -74,12 +74,11 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName("com.inspur.SmartApp", "com.inspur.SmartApp.MainActivity"));
                     intent.putExtra("token", token);
-                    startActivityForResult(intent, 1000);
+                    startActivityForResult(intent, 1001);
+                    textView.setText("调用第三方app去啰！");
                 } catch (Exception e) {
 
                 }
-
-
             }
         });
     }
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1000 && resultCode == 0) {
+        if (requestCode == 1000 && resultCode == 0 && data != null) {
             String value = data.getStringExtra("key");
             TextView textView = (TextView)findViewById(R.id.text);
             value = textView.getText() + "，获取的数据是：" + value;
