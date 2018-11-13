@@ -2,8 +2,11 @@ package com.wuyj.invokingapp;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -57,6 +60,18 @@ public class MainActivity extends AppCompatActivity {
 //                intent.putExtra("pwd", "");
 //                startActivityForResult(intent, 1000);
 //                textView.setText("调用第三方app去啰！");
+
+
+                PackageManager pm = getPackageManager();
+                try {
+                    PackageInfo pi = pm.getPackageInfo(getPackageName(), 0);
+                    String versionName = pi.versionName;
+                    int versioncode = pi.versionCode;
+                    Log.d("packageInfo",versionName + ":" + versioncode);
+                } catch (Exception e) {
+
+                }
+
 
                 // 调用浪潮云南集客app
                 // 获取当前时间
